@@ -1,39 +1,23 @@
-function showValuta() {
-    var x = document.getElementById("valutaPage")
-    var y = document.getElementById("tipPage")
-    var z = document.getElementById("toFrontPage")
-    z.style.display = 'none'
-    y.style.display = 'none'
-    if(x.style.display === 'none') {
-        x.style.display ='block'
+function show(showID) {
+    var front = document.getElementById("toFrontPage")
+    var tip = document.getElementById("tipPage")
+    var valuta = document.getElementById("valutaPage")
+    var arrayOfButtons = [front, tip, valuta]
+    arrayOfButtons.forEach(element => {
+        element.style.display = 'none'
+    });
+    if(showID == "front") {
+        front.style.display = 'block'
     }
-    else {
-        x.style.display = 'none'
+    else if(showID == "tip") {
+        tip.style.display = 'block'
     }
-}
-function showTip() {
-    var x = document.getElementById("tipPage")
-    var y = document.getElementById("valutaPage")
-    var z = document.getElementById("toFrontPage")
-    z.style.display = 'none'
-    y.style.display = 'none'
-    if(x.style.display === 'none') {
-        x.style.display ='block'
-    }
-    else {
-        x.style.display = 'none'
+    else if(showID == "valuta") {
+        valuta.style.display = 'block'
     }
 }
-function showMain() {
-    var x = document.getElementById("toFrontPage")
-    var y = document.getElementById("valutaPage")
-    var z = document.getElementById("tipPage")
-    z.style.display = 'none'
-    y.style.display = 'none'
-    if(x.style.display === 'none') {
-        x.style.display ='block'
-    }
-    else {
-        x.style.display = 'none'
-    }
+function calculateTip() {
+    var x = document.getElementById("dataForTip").value;
+    var sum = Math.round(x * 0.2)
+    document.getElementById("sumForTip").innerHTML = "Drikke penge beløb: " + sum
 }
